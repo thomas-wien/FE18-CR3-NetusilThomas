@@ -1,0 +1,60 @@
+<h1>Our Dishes</h1>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div *ngFor="let dish of dishes; index as dishID">
+    <div class="card p-3 mb-5">
+
+      <div class="card-img-body">
+        <img class="card-img" data-bs-toggle="modal" data-bs-target="#exampleModal" src={{dish.image}}
+          alt="{{dish.name}}">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{dish.name}}</h5>
+        <p class="card-text">{{ dish.description.substring(0,45)}} ...more<br></p>
+        <p class="card-text">Price: {{dish.price | currency: '€ '}}</p>
+        <hgroup class="row">
+          <p class="col-4 p-2 ms-3 btn btn-secondary btn-sm w-25 text-white" *ngIf="dish.available"
+            routerLink="/dishes/{{dishID}}">Details</p>
+          <p class="col-4 p-2 ms-3 btn btn-secondary btn-sm w-50 text-white" *ngIf="dish.available"
+            (click)="addToCart(dish)"><i class="bi bi-basket"> Add to
+              basket</i></p>
+          <small *ngIf="dish.available==false" class="text-danger">This dish is not available</small>
+        </hgroup>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="container" id="cont">
+      <h3 style="text-align: center;"> Add new dish</h3>
+      <form [formGroup]="orderform" (ngSubmit)="pushOrder()">
+          <div class="row inputs">
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 input">
+                  <label for="image">Image:&nbsp;&nbsp; </label>
+                  <input id="image" type="text" formControlName="image">
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 input">
+                  <label for="name">Name:&nbsp;&nbsp; </label>
+                  <input id="name" type="text" formControlName="name">
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 input">
+                  <label for="price">Price:&nbsp;&nbsp; </label>
+                  <input id="price" type="number" formControlName="price">
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 input">
+                  <label for="description">Description:&nbsp;&nbsp; </label>
+                  <input id="description" type="text" formControlName="description">
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 input">
+                  <label for="counter">Counter:&nbsp;&nbsp; </label>
+                  <input id="counter" type="number" formControlName="counter">
+              </div>
+          </div>
+          <div id="submit">
+              <input type="Submit" class="btn btn-outline-dark " value="submit" [class.disabled]="!orderform.valid">
+          </div>
+      </form>
+  </div>
+</div> -->

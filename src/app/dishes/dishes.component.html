@@ -1,0 +1,20 @@
+<div>
+  <h1>{{dish.name}}</h1>
+  <div class="row mx-auto" style="width: 75%;">
+    <div class="card p-3 mb-5">
+
+      <div class="card-img-body">
+        <img class="card-img" data-bs-toggle="modal" data-bs-target="#exampleModal" src={{dish.image}}
+          alt="{{dish.name}}" title="Click to see the details">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{dish.name}}</h5>
+        <p class="card-text">{{ dish.description}}</p>
+        <p class="card-text"> Price: {{dish.price | currency: '€ '}}</p>
+        <p class="col-4 p-2 ms-3 btn btn-secondary btn-sm w-50 text-white" *ngIf="dish.available"
+          (click)="addToCart(dish)"><i class="bi bi-basket"> Add to basket</i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
