@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "FE18-CR3-NetusilThomas:build:production"
+              "buildTarget": "FE18-CR3-NetusilThomas:build:production"
             },
             "development": {
-              "browserTarget": "FE18-CR3-NetusilThomas:build:development"
+              "buildTarget": "FE18-CR3-NetusilThomas:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FE18-CR3-NetusilThomas:build"
+            "buildTarget": "FE18-CR3-NetusilThomas:build"
           }
         },
         "test": {
